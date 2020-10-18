@@ -210,8 +210,41 @@ def example16():
             yaml.dump(e, f)
 
 
+def example17():
+    zendir = Path('zen-do-python/')
+    zendir.mkdir(exist_ok=True)
+    languages = ['pt', 'en', 'es', 'it', 'fr', 'de', 'ru', 'eo', 'hi', 'ar', 'he', 'ja', 'zh-cn']
+    zen = """The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!"""
+    for lang in languages:
+        print(lang)
+        tl = translator.translate(zen, lang)
+        print(tl)
+        file = zendir/f'{lang}-zen.txt'
+        file.write_text(tl.text)
+
+
 def run():
-    for i in range(16, 20):
+    for i in range(17, 20):
         func = f'example{i}'
         try:
             print(f'-- {func} --')

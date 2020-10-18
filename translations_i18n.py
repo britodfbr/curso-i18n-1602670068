@@ -46,7 +46,7 @@ def example_i18n_translate1():
     return i18n.t('translate.str1')  # String in Language 1
 
 
-def exampla_i18n_pluralization():
+def example_i18n_pluralization():
     i18n.add_translation('unread_number', {
         'zero': 'You do not have any unread mail.',
         'one': 'You have a new unread mail.',
@@ -160,6 +160,15 @@ def example_i18n1(lang='pt', param='sat'):
     return f"""{i18n.t(f'i18n.{param}')}"""
 
 
+def example_i18n2():
+    for i in ['pt', 'en', 'de', 'hi', 'ar', 'he', 'ja', 'es', 'it', 'fr', 'eo']:
+        print(f'{i}: ', end='')
+        # print(example_i18n(i))
+        for x in ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']:
+            print(example_i18n1(i, x), end=' ')
+        print()
+
+
 def run():
     # example_gettext()
     # example_tz()
@@ -172,12 +181,8 @@ def run():
     # pprint(all_locales())
     # example_i18n_switch_lang2()
     # example_gettext1()
-    for i in ['pt', 'en', 'de', 'hi', 'ar', 'he', 'ja', 'es', 'it', 'fr', 'eo']:
-        print(f'{i}: ', end='')
-        # print(example_i18n(i))
-        for x in ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']:
-            print(example_i18n1(i, x), end=' ')
-        print()
+    example_i18n2()
+
 
 
 if __name__ == '__main__':
